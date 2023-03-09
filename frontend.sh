@@ -1,3 +1,5 @@
+code_dir=$(pwd)
+
 echo -e "\e[35mInstalling nginx\e[0m"
 yum install nginx -y 
 
@@ -16,9 +18,8 @@ unzip /tmp/frontend.zip
 
 
 echo -e "\e[35mCopying nginx Config for RoboShop\e[0m"
-pwd
-ls -l
-cp configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
+
+cp ${code_dir}/configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 
 echo -e "\e[35mEnabling nginx\e[0m"
