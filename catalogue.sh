@@ -11,7 +11,7 @@ print_head "Create Roboshop User"
 useradd roboshop &>>${log_file}
 
 print_head "Create Application Directory"
-mkdir /app  &>>${log_file}
+mkdir /app &>>${log_file}
 
 
 print_head "Delete Old Content"
@@ -38,7 +38,7 @@ print_head "Enable Catalogue service"
 systemctl enable catalogue &>>${log_file} 
 
 print_head "Start Catalogue service"
-systemctl start catalogue &>>${log_file}
+systemctl restart catalogue &>>${log_file}
 
 print_head "Copy MongoDB Repo File"
 cp ${code_dir}configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
