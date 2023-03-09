@@ -43,8 +43,8 @@ systemctl start catalogue &>>${log_file}
 print_head "Copy MongoDB Repo File"
 cp ${code_dir}configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
 
-print_head "Install Mongo Client"
-yum install mongodb-org-shell -y &>>${log_file}
+print_head "Install Mongod Client"
+yum install mongod-org-shell -y &>>${log_file}
 
 print_head "Load Schema"
 mongo --host mongodb.learndevopsb71shop.site </app/schema/catalogue.js &>>${log_file}
