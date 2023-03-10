@@ -30,7 +30,6 @@ print_head "Load Schema"
 mongo --host mongodb-dev.learndevopsb71shop.site </app/schema/${component}.js &>>${log_file}
 status_check $?
   fi
-  
 }
 
 
@@ -43,6 +42,8 @@ status_check $?
 print_head "Install NodeJs"
 yum install nodejs -y &>>${log_file}
 status_check $?
+
+
 
 print_head "Create Roboshop User"
 id roboshop &>>${log_file}
@@ -93,3 +94,4 @@ systemctl restart ${component} &>>${log_file}
 status_check $?
 
 }
+
