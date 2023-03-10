@@ -48,13 +48,13 @@ status_check $?
 print_head "Load Schema"
 mongo --host mongodb-dev.learndevopsb71shop.site </app/schema/${component}.js &>>${log_file}
 status_check $?
-  elfi [ "{schema_type}" == "mysql" ]; then
-  print_head"Install MySQL Client"
-  yum install mysql -y 
+  elfi [ "${schema_type}" == "mysql" ]; then
+  print_head "Install MySQL Client"
+  yum install mysql -y &>>${log_file}
   status_check $?
   
-  print_head"Load Schema"
-  mysql -h mysql-dev.learndevopsb71shop.site -uroot -p${mysql_root_password} < /app/schema/shipping.sql
+  print_head "Load Schema"
+  mysql -h mysql-dev.learndevopsb71shop.site -uroot -p${mysql_root_password} < /app/schema/shipping.sql &>>${log_file}
   status_check $?
   fi
   
