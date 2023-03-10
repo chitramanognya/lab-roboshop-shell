@@ -21,7 +21,7 @@ print_head "copy SystemD Service file"
 cp ${code_dir}/configs/${component}.service /etc/systemd/system/${component}.service &>>${log_file}
 status_check $?
 
-sed -i -e "s/ROBOSHOP USER PASSWORD/${roboshop_app_password}/" /etc/systemd/system/${component}.service &>>${log_file}
+sed -i -e "s/ROBOSHOP_USER_PASSWORD/${roboshop_app_password}/" /etc/systemd/system/${component}.service &>>${log_file}
 
 print_head "Reload SystemD"
 systemctl daemon-reload &>>${log_file}
@@ -124,13 +124,7 @@ java() {
     mvn clean package &>>${log_file}
     mv target/${component}-1.0.jar ${component}.jar &>>${log_file}
     status_check $?
-
-    #Schema SetUp Function
-     schema_setup
     
-    #SystemD Function
-    systemd_setup
-
 }
 
 python() {
@@ -145,9 +139,5 @@ python() {
     pip3.6 install -r requirements.txt &>>${log_file}
     status_check $?
     
-    
-    
-    #SystemD Function
-    systemd_setup
 
 }
