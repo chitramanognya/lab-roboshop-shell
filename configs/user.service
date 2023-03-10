@@ -1,0 +1,12 @@
+[Unit]
+Description = User Service
+[Service]
+User=roboshop
+Environment=MONGO=true
+Environment=REDIS_HOST=redis.learndevopsb71shop.site
+Environment=MONGO_URL="mongodb://mongodb.learndevopsb71shop.site:27017/users"
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=user
+
+[Install]
+WantedBy=multi-user.target
