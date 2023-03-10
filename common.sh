@@ -48,7 +48,7 @@ status_check $?
 print_head "Load Schema"
 mongo --host mongodb-dev.learndevopsb71shop.site </app/schema/${component}.js &>>${log_file}
 status_check $?
-  elfi [ "${schema_type}" == "mysql" ]; then
+  elif [ "${schema_type}" == "mysql" ]; then
   print_head "Install MySQL Client"
   yum install mysql -y &>>${log_file}
   status_check $?
