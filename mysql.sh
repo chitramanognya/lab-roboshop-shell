@@ -24,5 +24,5 @@ systemctl restart mysqld
 status_check $?
 
 print_head "Set Password"
-mysql_secure_installation --set-root-pass ${mysql_root_password
+mysql_secure_installation --set-root-pass ${mysql_root_password}
 status_check $?
