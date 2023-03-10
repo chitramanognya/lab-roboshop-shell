@@ -1,7 +1,7 @@
 source common.sh
 
 mysql_root_password=$1
-if[ -z "${mysql_root_password}" ]; then
+if [ -z "${mysql_root_password}" ]; then
 echo "Missing MYSQL Root Password argument"
 exit 1
 fi
